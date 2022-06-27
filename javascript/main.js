@@ -4,6 +4,7 @@ function onLoad() {
 
 fetch(`https://rickandmortyapi.com/api/character?page=${onLoad()}`)
   .then((response) => response.json())
+  // .catch
   .then((data) => getData(data));
 
 function createElements(imgs, name, gender, stats, location) {
@@ -16,7 +17,7 @@ function createElements(imgs, name, gender, stats, location) {
   const content = document.createElement("div");
   content.innerHTML = `<h1>${name}</h1>`;
   content.innerHTML += `<p> ${stats} - ${gender}  </p>`;
-  content.innerHTML += `<span>Las seen in:</span> <br>${location}`;
+  content.innerHTML += `<span>Last seen in:</span> <br>${location}`;
   content.classList.add("content");
 
   const img = document.createElement("img");
@@ -29,9 +30,8 @@ function createElements(imgs, name, gender, stats, location) {
 
 function getData(data) {
   const array = data.results;
-
   for (i = 0; i <= array.length - 1; i++) {
-    const image = array[i].image;
+    const image = array[i]?.image;
     const name = array[i].name;
     const gender = array[i].gender;
     const status = array[i].status;
