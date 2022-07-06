@@ -77,6 +77,16 @@ section {
   line-height: 30px;
 }
 
+p.green{ 
+  color: lightgreen;
+}
+p.red{
+  color: red;
+}
+
+p.brown{
+  color: brown;
+}
 
 @media (max-width:540px){ 
   .box{

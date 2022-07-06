@@ -16,7 +16,15 @@ function createElements(imgs, name, gender, stats, location) {
 
   const content = document.createElement("div");
   content.innerHTML = `<h1>${name}</h1>`;
-  content.innerHTML += `<p> ${stats} - ${gender}  </p>`;
+  if(stats === 'Dead'){
+    content.innerHTML += `<p class = 'red'> ${stats}</p>`;
+  } else if(stats === 'Alive') {
+    content.innerHTML += `<p class = 'green'> ${stats}</p>`;
+  } else {
+    content.innerHTML += `<p class = 'brown'> ${stats}</p>`;
+  }
+
+  content.innerHTML += `<p>${gender} </p>`
   content.innerHTML += `<span>Last seen in:</span> <br>${location}`;
   content.classList.add("content");
 
