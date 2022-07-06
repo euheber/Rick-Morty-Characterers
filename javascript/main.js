@@ -4,7 +4,7 @@ function onLoad() {
 
 fetch(`https://rickandmortyapi.com/api/character?page=${onLoad()}`)
   .then((response) => response.json())
-  // .catch
+  // .catch()
   .then((data) => getData(data));
 
 function createElements(imgs, name, gender, stats, location) {
